@@ -36,7 +36,7 @@ inquirer.prompt([
       
 
   
-     const test = `<div style=background-color:grey;><h1 style=color:${answers.color}>${response.data.name}</h1>![avatar](${imageUrl})<h3>Bio: ${response.data.bio}</h3><h4>Repo URL: ${response.data.repos_url}</h4><h4>Public Repos: ${response.data.public_repos}</h4><h4>Follower: ${response.data.followers}</h4><h4>Following: ${response.data.following}</h4><h4>Location: ${response.data.location}</h4></div>`
+     const test = `<div style=background-color:black;><div style=padding-left:20px;><h1 style=color:${answers.color}>${response.data.name}</h1>![avatar](${imageUrl})<h3>Bio: ${response.data.bio}</h3><h4>Repo URL: ${response.data.repos_url}</h4><h4>Public Repos: ${response.data.public_repos}</h4><h4>Follower: ${response.data.followers}</h4><h4>Following: ${response.data.following}</h4><h4>Location: ${response.data.location}</h4></div></div>`
 
     
       fs.writeFile("output.md", JSON.stringify(test), err => {
