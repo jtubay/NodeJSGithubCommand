@@ -4,8 +4,8 @@ const axios = require("axios");
 const inquirer = require("inquirer");
 
 
-var MarkdownIt = require('markdown-it'),
-md = new MarkdownIt()
+const MarkdownIt = require('markdown-it')
+const md = new MarkdownIt()
 
 const fs = require('fs')
 inquirer.prompt([
@@ -44,7 +44,7 @@ inquirer.prompt([
 
 ---
 
-# ${response.data.name}
+# <span style="color:${answers.color}"${response.data.name}</span>
 ## ${response.data.bio}
 ### !['person'](${response.data.avatar_url})
 #### h4 Heading
