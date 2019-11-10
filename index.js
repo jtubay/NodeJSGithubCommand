@@ -21,22 +21,10 @@ inquirer.prompt([
 ]).then( answers => {
   axios.get(`https://api.github.com/users/${answers.username}`)
     .then( response => {
-      console.log(response.data.bio);
-      console.log(response.data.name)
-      console.log(response.data.repos_url)
-      console.log(response.data.company)
-      console.log(response.data.location)
-      console.log(response.data.followers)
-      console.log(response.data.following)
-      console.log(response.data.public_repos)
-      console.log(response.data.avatar_url)
-      const imageUrl = response.data.avatar_url
-      
-
-      
-
+    
+    const imageUrl = response.data.avatar_url
   
-     const test = `<div style=background-color:black;><div style=padding-left:20px;><h1 style=color:${answers.color}>${response.data.name}</h1>![avatar](${imageUrl})<h3>Bio: ${response.data.bio}</h3><h4>Repo URL: ${response.data.repos_url}</h4><h4>Public Repos: ${response.data.public_repos}</h4><h4>Follower: ${response.data.followers}</h4><h4>Following: ${response.data.following}</h4><h4>Location: ${response.data.location}</h4></div></div>`
+     const test = `<div style=background-color:black;><div style=padding-left:20px;><h1 style=color:${answers.color}>${response.data.name}</h1>![avatar](${imageUrl})<h3>Bio: ${response.data.bio}</h3><h4>Repo URL: <a href=${response.data.repos_url}>${response.data.name}'s Repo</a></h4><h4>Public Repos: ${response.data.public_repos}</h4><h4>Follower: ${response.data.followers}</h4><h4>Following: ${response.data.following}</h4><h4>Location: ${response.data.location}</h4></div></div>`
 
     
       fs.writeFile("output.md", JSON.stringify(test), err => {
