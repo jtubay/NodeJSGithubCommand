@@ -36,9 +36,24 @@ inquirer.prompt([
 
       
 
-      //const test = `<h1>${response.data.bio}</h1><hr> ${response.data.name} ${response.data.company}`
+      //const test = `#${response.data.bio}___${response.data.name}___${response.data.company}`
       
-     const test = md.render(`${response.data.name}`)
+     //const test = md.render(`# ${response.data.name} ${response.data.bio}${response.data.following}`)
+
+     const test = md.render(`
+
+---
+
+# ${response.data.name}
+## ${response.data.bio}
+### !['person'](${response.data.avatar_url})
+#### h4 Heading
+##### h5 Heading
+###### h6 Heading
+
+
+## Horizontal Rules
+     `)
 
     
       fs.writeFile("me.md", JSON.stringify(test), err => {
